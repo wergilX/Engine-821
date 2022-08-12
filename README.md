@@ -8,21 +8,21 @@ fmt<br>
 Box2D<br>
 find audio lib<br>
 spine<br>
-AI
-sprite animation
-network comunication
-math
-UI
-serialization
+AI<br>
+sprite animation<br>
+network comunication<br>
+math<br>
+UI<br>
+serialization<br>
+<br>
+
+==================================================<br>
+component model ENTT<br>
+scripting<br>
+reading files, assert, loging - (core lib)<br><br>
 
 
-==================================================
-component model ENTT
-scripting
-reading files, assert, loging - (core lib)
 
 
-
-
-==================================================
-editor
+==================================================<br>
+editor<br>
