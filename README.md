@@ -1,13 +1,13 @@
 # Engine-821
 
-SDL2/SFML for main window, events.
-
-Render SDL2/OpenGL
-Debug IMGUI
-fmt
-Box2D
-find audio lib
-spine
+SDL2/SFML for main window, events.<br>
+<br>
+Render SDL2/OpenGL<br>
+Debug IMGUI<br>
+fmt<br>
+Box2D<br>
+find audio lib<br>
+spine<br>
 AI
 sprite animation
 network comunication
