@@ -21,8 +21,6 @@ component model ENTT<br>
 scripting<br>
 reading files, assert, loging - (core lib)<br><br>
 
-
-
-
 ==================================================<br>
+
 editor<br>
