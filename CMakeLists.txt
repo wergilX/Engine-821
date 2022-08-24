@@ -30,3 +30,7 @@ target_link_libraries(
 
 add_subdirectory(src/engine)
 add_subdirectory(src/game)
+
+if (WIN32)
+    message(" +---------- WINDOWS OS ----------+ ")
+endif(WIN32)
