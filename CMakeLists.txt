@@ -1,23 +1,28 @@
 cmake_minimum_required(VERSION 3.7)
 
-set(PROJECT_NAME Engine-821)
-set(EXECUTABLE_NAME Engine-821)
+set(CMAKE_CXX_STANDARD 20)
+set(CMAKE_CXX_STANDARD_REQUIRED True)
 
-project(${PROJECT_NAME})
+set(PROJECT_NAME Engine-821)
+set(EXECUTABLE_NAME engine-821)
+set(FMT_DIR ${CMAKE_SOURCE_DIR}/libraries/fmt)
+
+project(${PROJECT_NAME} VERSION 0.1)
 
 find_package(SDL2 REQUIRED)
-include_directories(${EXECUTABLE_NAME} ${SDL2_INCLUDE_DIRS})
-
-find_package(fmt)
-include_directories(${EXECUTABLE_NAME} libraries/fmt/include)
-
 add_executable(${EXECUTABLE_NAME} src/main.cpp)
 
-add_subdirectory(libraries/fmt)
+target_include_directories(
+    ${EXECUTABLE_NAME} 
+    PRIVATE ${SDL2_INCLUDE_DIRS} 
+            ${FMT_DIR}/include
+    )
+
+target_link_libraries(
+    ${EXECUTABLE_NAME} 
+    PRIVATE ${SDL2_LIBRARIES} 
+            ${FMT_DIR}/libfmt.a
+    )
+
 add_subdirectory(src/engine)
 add_subdirectory(src/game)
-
-
-target_link_libraries(${EXECUTABLE_NAME} fmt::fmt)
-
-target_link_libraries(${EXECUTABLE_NAME} ${SDL2_LIBRARIES})
