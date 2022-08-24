@@ -19,7 +19,7 @@ void Engine::Initialize()
         return;
     }
 
-    if (p_Renderer = SDL_CreateRenderer(p_Winodw, 1, SDL_RENDERER_ACCELERATED))
+    if (p_Renderer = SDL_CreateRenderer(p_Winodw, 1, SDL_RENDERER_ACCELERATED); p_Renderer == nullptr)
     {
         printf("Failed to create renderer: %s\n", SDL_GetError()); // TODO: assert (with fmt)
         return;
