@@ -6,11 +6,17 @@
 #undef main
 int main()
 {
-    std::string s = fmt::format("The answer is {}.", 42);
-    printf("%s\n", s.c_str());
+    const Engine::Config config
+    {
+        .Window{
+            .Title  = fmt::format("Engine 821 ver {}.{}", 0, 1),
+            .Width  = 1920,
+            .Height = 1080,
+        }
+    };
 
     Engine engine;
-    engine.Initialize();
+    engine.Initialize(config);
     engine.Run();
     engine.Destroy();
     return 0;

@@ -4,24 +4,19 @@
 #include <cstdio>
 
 
-void Engine::Initialize()
+void Engine::Initialize(const Config& config)
 {
-    // Initilize SDL:
     if(SDL_Init(SDL_INIT_VIDEO | SDL_INIT_EVENTS) != 0)
     {
-        printf("Failed to init SDL: %s\n", SDL_GetError()); // TODO: assert (with fmt)
+        // TODO: ASSERT(false, SDL_GetError());
         return;
     }
 
-    if (p_Winodw = SDL_CreateWindow("Engine 821", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 1920, 1080, SDL_WINDOW_RESIZABLE); p_Winodw == nullptr)
-    {
-        printf("Failed to create window: %s\n", SDL_GetError()); // TODO: assert (with fmt)
-        return;
-    }
+    m_Window.Initialize(config.Window);
 
-    if (p_Renderer = SDL_CreateRenderer(p_Winodw, 1, SDL_RENDERER_ACCELERATED); p_Renderer == nullptr)
+    if (p_Renderer = SDL_CreateRenderer(m_Window.GetHandle(), -1, SDL_RENDERER_ACCELERATED); p_Renderer == nullptr)
     {
-        printf("Failed to create renderer: %s\n", SDL_GetError()); // TODO: assert (with fmt)
+        // TODO: ASSERT(false, SDL_GetError());
         return;
     }
 }
@@ -29,7 +24,7 @@ void Engine::Initialize()
 void Engine::Destroy()
 {
     SDL_DestroyRenderer(p_Renderer);
-    SDL_DestroyWindow(p_Winodw);
+    m_Window.Destroy();
 }
 
 void Engine::Run()
@@ -116,7 +111,10 @@ void Engine::OnQuitEvent()
 
 void Engine::OnWindowResizedEvent(const WindowResizedEvent& event)
 {
-    printf("Window size: %dx%d\n", event.Width, event.Height);
+    if (m_Window.OnResize(event.Width, event.Height))
+    {
+        printf("Window size: %dx%d\n", event.Width, event.Height);
+    }
 }
 
 void Engine::OnClickEvent(const MouseClickEvent& event)

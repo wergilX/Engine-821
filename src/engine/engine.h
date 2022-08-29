@@ -1,24 +1,33 @@
 #pragma once
 
 #include "events.h"
+#include "window.h"
 
 class Engine
 {
 public:
-    void Initialize(); // TODO: struct EngineConfig
+    struct Config
+    {
+        Window::Config Window;
+    };
+
+public:
+    void Initialize(const Config& config);
     void Destroy();
     void Run();
 
 private:
     void HandleEvents();
 
+    // TODO: Finish other events
+    // TODO: Axis / Action
     void OnQuitEvent();
     void OnWindowResizedEvent(const WindowResizedEvent& event);
     void OnClickEvent(const MouseClickEvent& event);
 
-private: // Temp shit:
-    struct SDL_Window* p_Winodw = nullptr;
-    struct SDL_Renderer* p_Renderer = nullptr;
+private:
+    Window m_Window;
+    struct SDL_Renderer* p_Renderer = nullptr;  // Temp shit
 
     bool m_Running = false;
 };
