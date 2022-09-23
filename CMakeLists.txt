@@ -6,7 +6,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 set(EXECUTABLE_NAME engine-821)
 
-add_executable(${EXECUTABLE_NAME} src/main.cpp)
+add_executable(${EXECUTABLE_NAME} src/Main.cpp)
+
+include_directories(${EXECUTABLE_NAME} PUBLIC src/engine/core)
 
 target_include_directories(
         ${EXECUTABLE_NAME} 
