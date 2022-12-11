@@ -1,15 +1,21 @@
 #pragma once
 
-class Engine
-{
-public:
-    void Initialize(); // TODO: struct EngineConfig
-    void Destroy();
-    void Run();
+#include "IRenderer.hpp"
 
-private: // Temp shit:
-    struct SDL_Window* p_Winodw = nullptr;
-    struct SDL_Renderer* p_Renderer = nullptr;
+#include <memory>
 
-    bool m_Running = false;
-};
+namespace Engine::Core{
+
+    class Engine
+    {
+    public:
+        void Initialize();
+        void Destroy();
+        void Run();
+
+    private:
+        std::shared_ptr<IRenderer> m_renderer = nullptr;
+
+        bool m_Running = false;
+    };
+}

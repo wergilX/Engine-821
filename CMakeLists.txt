@@ -6,7 +6,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED True)
 
 set(EXECUTABLE_NAME engine-821)
 
-add_executable(${EXECUTABLE_NAME} src/Main.cpp)
+add_executable(${EXECUTABLE_NAME} src/Main.cpp src/engine/IRenderer.hpp src/engine/core/Renderer.cpp src/engine/core/Renderer.hpp src/engine/Renderer.hpp src/engine/common/Circle.hpp src/engine/common/Types.hpp)
 
 include_directories(${EXECUTABLE_NAME} PUBLIC src/engine/core)
 
