@@ -2,9 +2,12 @@
 
 SDL2/SFML for main window, events.<br>
 <br>
-Render SDL2/OpenGL<br>
+! Asset Manager<br>
+! ECS (components/game objects/scene(level))
+! Renderer SDL2<br>
+! Camera (after renderer and asset manager and ECS)
 Debug IMGUI<br>
-fmt<br>
+👌🏼 fmt<br>
 Box2D<br>
 find audio lib<br>
 spine<br>
