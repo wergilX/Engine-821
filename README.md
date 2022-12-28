@@ -3,7 +3,7 @@
 SDL2/SFML for main window, events.<br>
 <br>
 ! Asset Manager<br>
-! ECS (components/game objects/scene(level))
+! ECS (components/game objects/scene(level)) <br>
 ! Renderer SDL2<br>
 ! Camera (after renderer and asset manager and ECS)
 Debug IMGUI<br>
